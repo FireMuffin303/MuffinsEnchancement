@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:efficiency",
+    "minecraft:silk_touch",
+    "enchancement:molten",
+    "enchancement:extracting",
+    "enchancement:beheading",
+    "enchancement:lumberjack"
+  ]
+}
