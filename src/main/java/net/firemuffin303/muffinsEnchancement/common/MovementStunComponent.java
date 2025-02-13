@@ -1,6 +1,5 @@
 package net.firemuffin303.muffinsEnchancement.common;
 
-import com.mojang.logging.LogUtils;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
 import net.firemuffin303.muffinsEnchancement.common.registry.ModComponents;
@@ -41,7 +40,6 @@ public class MovementStunComponent implements AutoSyncedComponent, CommonTicking
     @Override
     public void tick() {
         if(this.isStunned){
-            LogUtils.getLogger().info(this.stunCooldown+"");
             if(--this.stunCooldown <= 0){
                 this.stunCooldown = 20*10;
                 this.setStunned(false);

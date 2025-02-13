@@ -7,8 +7,6 @@ import net.minecraft.util.Identifier;
 public class MuffinsEnchancementMod implements ModInitializer {
     public static final String MODID = "muffins_enchancement";
 
-
-
     @Override
     public void onInitialize() {
         MidnightConfig.init(MODID,ModConfig.class);
