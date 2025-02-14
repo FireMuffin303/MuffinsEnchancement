@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Debug(export = true)
 @Mixin(SlideComponent.class)
 public abstract class SlideComponentMixin {
     
@@ -24,17 +23,17 @@ public abstract class SlideComponentMixin {
 
     @Unique int slideCooldown = 0;
 
-    @Inject(method = "readFromNbt", at = @At("TAIL"),remap = false)
+    @Inject(method = "readFromNbt", at = @At("TAIL"))
     public void muffins_enchancement$readFromNBT(NbtCompound tag, CallbackInfo ci){
         this.slideCooldown = tag.getInt("slideCooldown");
     }
 
-    @Inject(method = "writeToNbt", at = @At("TAIL"),remap = false)
+    @Inject(method = "writeToNbt", at = @At("TAIL"))
     public void muffins_enchancement$writeToNBT(NbtCompound tag, CallbackInfo ci){
         tag.putInt("slideCooldown",this.slideCooldown);
     }
     
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;setVelocity(DDD)V",ordinal = 0),remap = false)
+    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;setVelocity(DDD)V",ordinal = 0))
     public void muffins_enchancement$setVelocity(CallbackInfo ci){
         this.velocity = new Vec3d(this.velocity.getX() * 0.958424,this.velocity.getY(),this.velocity.getZ()* 0.958424);
     }

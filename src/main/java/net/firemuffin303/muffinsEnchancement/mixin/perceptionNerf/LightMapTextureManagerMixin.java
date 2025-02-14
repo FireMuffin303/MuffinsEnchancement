@@ -8,7 +8,7 @@ import net.minecraft.client.render.LightmapTextureManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(LightmapTextureManager.class)
+@Mixin(value = LightmapTextureManager.class,priority = 1500)
 public abstract class LightMapTextureManagerMixin {
     @TargetHandler(mixin = "moriyashiine.enchancement.mixin.perception.client.LightmapTextureManagerMixin",name = "enchancement$perception")
     @ModifyReturnValue(method = "@MixinSquared:Handler",at = @At(value = "RETURN",ordinal = 0))

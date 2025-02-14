@@ -25,14 +25,14 @@ public abstract class EnchantmentHelperMixin {
     private static ItemStack anotherCachedStack;
 
     @TargetHandler(mixin = "moriyashiine.enchancement.mixin.vanillachanges.enchantmentlimit.EnchantmentHelperMixin",name = "enchancement$enchantmentLimit(Ljava/util/Map;Lnet/minecraft/item/ItemStack;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V",prefix = "handler")
-    @Inject(method = "@MixinSquared:Handler" ,at = @At(value = "HEAD"),remap = false)
+    @Inject(method = "@MixinSquared:Handler" ,at = @At(value = "HEAD"))
     private static void muffins_enchancement$storeCacheStack(Map<Enchantment, Integer> enchantments, ItemStack stack, CallbackInfo ci,CallbackInfo callbackInfo){
         anotherCachedStack = stack;
     }
 
 
     @TargetHandler(mixin = "moriyashiine.enchancement.mixin.vanillachanges.enchantmentlimit.EnchantmentHelperMixin",name = "enchancement$enchantmentLimit",prefix = "localvar")
-    @ModifyExpressionValue(method = "@MixinSquared:Handler" ,at = @At(value = "INVOKE", target = "moriyashiine/enchancement/common/util/EnchancementUtil.limitCheck (ZZ)Z"),remap = false)
+    @ModifyExpressionValue(method = "@MixinSquared:Handler" ,at = @At(value = "INVOKE", target = "moriyashiine/enchancement/common/util/EnchancementUtil.limitCheck (ZZ)Z"))
     private static boolean muffins_enchancement$toolEnchantmentLimit(boolean original, @Local(ordinal = 1) Map<Enchantment,Integer> map){
         if(ModConfig.toolEnchantmentAdditional){
             if(EnchancementUtil.limitCheck(true, MuffinUtil.getNonDefaultNonToolEnchantment(anotherCachedStack,map.size()))){

@@ -19,8 +19,8 @@ public abstract class PersistentProjectileEntityMixin {
 
     @Shadow protected abstract ItemStack asItemStack();
 
-    @TargetHandler(mixin = "moriyashiine.enchancement.mixin.warp.PersistentProjectileEntityMixin",name ="enchancement$warp")
-    @Inject(method = "@MixinSquared:Handler",at = @At(value = "INVOKE", target = "net/minecraft/world/World.sendEntityStatus (Lnet/minecraft/entity/Entity;B)V"),remap = false)
+    @TargetHandler(mixin = "moriyashiine.enchancement.mixin.warp.PersistentProjectileEntityMixin",name ="enchancement$warp",prefix = "handler")
+    @Inject(method = "@MixinSquared:Handler",at = @At(value = "INVOKE", target = "net/minecraft/world/World.sendEntityStatus (Lnet/minecraft/entity/Entity;B)V"))
     private void muffins_enchancement$cooldownTrident(BlockHitResult blockHitResult, CallbackInfo ci, CallbackInfo callbackInfo, @Local LivingEntity livingEntity){
         if(livingEntity instanceof PlayerEntity player && ModConfig.warpNerf){
             player.getItemCooldownManager().set(this.asItemStack().getItem(),20* ModConfig.warpCooldownSec);

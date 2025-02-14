@@ -32,14 +32,14 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
         super(type, syncId, playerInventory, context);
     }
 
-    @Inject(method = "updateResult",at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/Enchantment;canCombine(Lnet/minecraft/enchantment/Enchantment;)Z"),remap = false)
+    @Inject(method = "updateResult",at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/Enchantment;canCombine(Lnet/minecraft/enchantment/Enchantment;)Z"))
     public void muffins_enchancement$cacheEnchantment(CallbackInfo ci,@Local(ordinal = 0) Enchantment enchantment){
         this.cacheEnchantment = enchantment;
     }
 
 
     @TargetHandler(mixin = "moriyashiine.enchancement.mixin.vanillachanges.enchantmentlimit.AnvilScreenHandlerMixin",name = "enchancement$enchantmentLimit",prefix = "modifyExpressionValue")
-    @ModifyExpressionValue(method = "@MixinSquared:Handler",at = @At(value = "INVOKE", target = "moriyashiine/enchancement/common/util/EnchancementUtil.limitCheck (ZZ)Z"),remap = false)
+    @ModifyExpressionValue(method = "@MixinSquared:Handler",at = @At(value = "INVOKE", target = "moriyashiine/enchancement/common/util/EnchancementUtil.limitCheck (ZZ)Z"))
     public boolean muffins_enchancement$toolEnchantment(boolean original, @Local ItemStack stack){
         if(ModConfig.toolEnchantmentAdditional){
             if(EnchancementUtil.limitCheck(false, MuffinUtil.getNonDefaultNonToolEnchantment(stack,stack.getEnchantments().size() + 1)) && Registries.ENCHANTMENT.getEntry(this.cacheEnchantment).isIn(ModTagDataGen.TOOL_ENCHANTMENT)){
