@@ -19,7 +19,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
-@Debug(export = true)
 @Mixin(value = EnchantmentHelper.class,priority = 1500)
 public abstract class EnchantmentHelperMixin {
     @Unique
@@ -35,9 +34,12 @@ public abstract class EnchantmentHelperMixin {
     @TargetHandler(mixin = "moriyashiine.enchancement.mixin.vanillachanges.enchantmentlimit.EnchantmentHelperMixin",name = "enchancement$enchantmentLimit",prefix = "localvar")
     @ModifyExpressionValue(method = "@MixinSquared:Handler" ,at = @At(value = "INVOKE", target = "moriyashiine/enchancement/common/util/EnchancementUtil.limitCheck (ZZ)Z"),remap = false)
     private static boolean muffins_enchancement$toolEnchantmentLimit(boolean original, @Local(ordinal = 1) Map<Enchantment,Integer> map){
-        if(EnchancementUtil.limitCheck(true, MuffinUtil.getNonDefaultNonToolEnchantment(anotherCachedStack,map.size()))){
-            return true;
+        if(ModConfig.toolEnchantmentAdditional){
+            if(EnchancementUtil.limitCheck(true, MuffinUtil.getNonDefaultNonToolEnchantment(anotherCachedStack,map.size()))){
+                return true;
+            }
         }
+
 
         return original;
     }

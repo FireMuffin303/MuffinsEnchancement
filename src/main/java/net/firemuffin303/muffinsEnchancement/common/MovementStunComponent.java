@@ -2,17 +2,19 @@ package net.firemuffin303.muffinsEnchancement.common;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
+import net.firemuffin303.muffinsEnchancement.ModConfig;
 import net.firemuffin303.muffinsEnchancement.common.registry.ModComponents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 
 public class MovementStunComponent implements AutoSyncedComponent, CommonTickingComponent {
-    private int stunCooldown = 20*10;
+    private int stunCooldown;
     private boolean isStunned = false;
     private PlayerEntity player;
 
     public MovementStunComponent(PlayerEntity player){
         this.player = player;
+        this.stunCooldown = 20*ModConfig.movementStunCooldown;
     }
 
     public void setStunned(boolean stunned) {
@@ -41,7 +43,7 @@ public class MovementStunComponent implements AutoSyncedComponent, CommonTicking
     public void tick() {
         if(this.isStunned){
             if(--this.stunCooldown <= 0){
-                this.stunCooldown = 20*10;
+                this.stunCooldown = 20* ModConfig.movementStunCooldown;
                 this.setStunned(false);
             }
         }

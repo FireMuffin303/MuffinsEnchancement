@@ -47,6 +47,7 @@ dependencies {
     modApi("dev.onyxstudios.cardinal-components-api:cardinal-components-world:${cardinal_components_version}")
     modApi("maven.modrinth:midnightlib:${midnightlib_version}")
     modApi("maven.modrinth:tooltipfix:${tooltipfix_version}")
+    modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
     modApi("com.github.emilyploszaj:step-height-entity-attribute:${step_height_entity_attribute_version}")
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.2.0")))

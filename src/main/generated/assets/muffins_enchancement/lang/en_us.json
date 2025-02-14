@@ -1,0 +1,14 @@
+{
+  "modmenu.descriptionTranslation.muffins_enchancement": "A addon mod for MoriyaShiine's Enchancement. Add a little adjustment for some enchantment to be even more enjoyable.",
+  "modmenu.nameTranslation.muffins_enchancement": "Muffin's Enchancement",
+  "modmenu.summaryTranslation.muffins_enchancement": "A addon mod for MoriyaShiine's Enchancement",
+  "muffins_enchancement.midnightconfig.axeDisableMovement": "Axe disables Movement Enchants",
+  "muffins_enchancement.midnightconfig.axeDisableMovement.tooltip": "Anything that disable shield cause Movement Stun. Movement Stun disable most of movement by enchantment for couple of seconds.",
+  "muffins_enchancement.midnightconfig.movementStunCooldown": "Movement Stun Cooldown",
+  "muffins_enchancement.midnightconfig.perceptionNerf": "Weaker Perception",
+  "muffins_enchancement.midnightconfig.title": "Muffin's Enchancement",
+  "muffins_enchancement.midnightconfig.toolEnchantmentAdditional": "Tool Enchantment Additional",
+  "muffins_enchancement.midnightconfig.toolEnchantmentLimit": "Tool Enchantment Limit",
+  "muffins_enchancement.midnightconfig.warpCooldownSec": "Warp Cooldown (Seconds)",
+  "muffins_enchancement.midnightconfig.warpNerf": "Weaker Warp"
+}

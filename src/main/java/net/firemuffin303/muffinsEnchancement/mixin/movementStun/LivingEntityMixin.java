@@ -1,5 +1,6 @@
 package net.firemuffin303.muffinsEnchancement.mixin.movementStun;
 
+import net.firemuffin303.muffinsEnchancement.ModConfig;
 import net.firemuffin303.muffinsEnchancement.common.registry.ModComponents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -20,7 +21,7 @@ public abstract class LivingEntityMixin {
     public void muffins_enchancement$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir){
         Entity entity = source.getAttacker();
         if(entity instanceof LivingEntity livingEntity && ((LivingEntity)(Object)this) instanceof PlayerEntity player){
-            if(livingEntity.disablesShield()){
+            if(livingEntity.disablesShield() && ModConfig.axeDisableMovement){
                 ModComponents.MOVEMENT_STUN.get(player).setStunned(true);
             }
         }

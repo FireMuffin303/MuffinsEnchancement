@@ -6,14 +6,17 @@
   "mixins": [
     "enchantmentLimit.AnvilScreenHandlerMixin",
     "enchantmentLimit.EnchantmentHelperMixin",
+    "enchantmentLimit.EnchantmentMixin",
     "movementStun.DashComponentMixin",
     "movementStun.GaleComponentMixin",
     "movementStun.LivingEntityMixin",
     "movementStun.SlideComponentMixin",
     "movementStun.StrafeComponentMixin",
-    "slideNerf.SlideComponentMixin"
+    "slideNerf.SlideComponentMixin",
+    "warpNerf.PersistentProjectileEntityMixin"
   ],
   "client": [
+    "perceptionNerf.LightMapTextureManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
